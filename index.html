@@ -178,7 +178,7 @@
 <nav class="navbar">
   <ul>
     <!-- <li><a href="#home">Home</a></li> -->
-    <li><a href="#home">Top</a></li>
+    <li><a href="https://llm-editing.github.io/">Home</a></li>
     <!-- <li><a href="#contribution">Benchmarks</a></li> -->
     <li><a href="#bibtex">BibTex</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -195,7 +195,7 @@
               <div class="column is-four-fifths">
                 <div class="content has-text-centered">
                   <!-- ICLR 2024 -->
-                  <a href="https://llm-editing.github.io/" style="color: #00d1b2;">Releated Work (Editing Attack): Can Editing LLMs Inject Harm?</a>
+                  <a href="https://llm-editing.github.io/" style="color: rgb(0, 162, 255);">Releated Work (Editing Attack): Can Editing LLMs Inject Harm?</a>
                   <br>
                   
                 </div>
@@ -212,11 +212,11 @@
             </h1>
               <br>
               <div class="is-size-5 publication-authors">
-                <span class="author-block"><a href="https://baixianghuang.github.io/" style="color: #00d1b2;">Baixiang Huang<sup>*1</sup></a>,</span>
-                <span class="author-block"><a href="https://canyuchen.com" target="_blank" style="color: #00d1b2;">Canyu Chen<sup>*1</sup></a>,</span>
-                <span class="author-block"><a href="https://xiongxiaoxu.github.io/" target="_blank" style="color: #00d1b2;">Xiongxiao Xu<sup>1</sup></a>,</span>
-                <span class="author-block"><a href="mailto:apayani@cisco.com" target="_blank" style="color: #00d1b2;">Ali Payani<sup>2</sup></a>,</span>
-                <span class="author-block"><a href="https://www.cs.emory.edu/~kshu5/" target="_blank" style="color: #00d1b2;">Kai Shu<sup>3</sup></a></span>
+                <span class="author-block"><a href="https://baixianghuang.github.io/">Baixiang Huang<sup>*1</sup></a>,</span>
+                <span class="author-block"><a href="https://canyuchen.com" target="_blank" >Canyu Chen<sup>*1</sup></a>,</span>
+                <span class="author-block"><a href="https://xiongxiaoxu.github.io/" target="_blank">Xiongxiao Xu<sup>1</sup></a>,</span>
+                <span class="author-block"><a href="mailto:apayani@cisco.com" target="_blank">Ali Payani<sup>2</sup></a>,</span>
+                <span class="author-block"><a href="https://www.cs.emory.edu/~kshu5/" target="_blank">Kai Shu<sup>3</sup></a></span>
               </div>
               <div class="is-size-5 publication-institutions">
                 <span class="institution-block"><sup>1</sup>Illinois Tech,</span>
@@ -230,7 +230,7 @@
                             <!-- Publication links -->
                 <div class="publication-links">
                   <span class="link-block">
-                    <a href="https://arxiv.org/pdf/" target="_blank" class="external-link button is-outlined is-primary">                 
+                    <a href="https://arxiv.org/pdf/" target="_blank" class="external-link button is-outlined">                 
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
@@ -239,7 +239,7 @@
                   </span>
 
                   <span class="link-block">
-                    <a href="https://arxiv.org/abs/" target="_blank" class="external-link button is-outlined is-primary">                 
+                    <a href="https://arxiv.org/abs/" target="_blank" class="external-link button is-outlined">                 
                       <span class="icon">
                         <i class="ai ai-arxiv"></i>
                       </span>
@@ -248,7 +248,7 @@
                   </span>
                 
                   <span class="link-block">
-                    <a href="https://github.com/llm-editing/hallu-edit" target="_blank" class="external-link button is-outlined is-primary">
+                    <a href="https://github.com/llm-editing/hallu-edit" target="_blank" class="external-link button is-outlined">
                       <span class="icon">
                           <i class="fab fa-github"></i>
                       </span>
@@ -372,6 +372,181 @@
   </section>
   
 
+<section class="section" id="findings">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results and Analysis</h2>
+    <div class="content">
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('stat')">
+          <span>Statistics of HalluEditBench</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-stat"></i>
+          </span>
+        </button>
+        <div id="stat" class="finding-content" style="display: none;">
+          <p>Statistics of HalluEditBench Across Topics and Domains.</p>
+          <img src="./static/images/stat_v4.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('efficacy')">
+          <span>Facet 1: Efficacy</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-efficacy"></i>
+          </span>
+        </button>
+        <div id="efficacy" class="finding-content" style="display: none;">
+          <p>Efficacy Scores of Knowledge Editing Methods. The "overall" refers to the Efficacy
+            Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Efficacy
+            Score on each domain is also reported. Efficacy scores (%) are measured by the accuracy on Efficacy
+            Evaluation Question-answer Pairs, where the pre-edit scores of each LLM are ensured 0.
+          </p>
+          <p>Insight 1: (1) The current assessment of knowledge editing could be unreliable; 
+            (2) ICE and GRACE outperform parameter-modifying editing techniques such as fine-tuning 
+            and "Locate-then-Edit" methods on Efficacy; (3) Domains and LLMs could have a high impact on Efficacy.
+          </p>
+          <img src="./static/images/f1_v3.png" alt="efficacy" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('generalization')">
+          <span>Facet 2: Generalization</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-generalization"></i>
+          </span>
+        </button>
+        <div id="generalization" class="finding-content" style="display: none;">
+          <p>
+            Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are
+            measured by accuracy on five types of Generalization Evaluation Questions including Rephrased
+            Questions ("rephrase"), Yes-or-No Questions with Yes or No as answers ("yes" or "no"), 
+            MultiChoice Questions ("mc"), Reversed Questions ("reversed"). The "average" refers to averaged scores
+            over five question types. The figure only shows the overall Generalization Scores for each type on the
+            whole HalluEditBench.
+          </p>
+          <p>
+            Insight 2: (1) The manifestation of hallucination depends on question design; 
+            (2) Higher Efficacy Scores do not also necessarily indicate higher Generalization Scores; 
+            (3) All editing techniques except ICE only marginally improve or negatively impact the Generalization performance.
+          </p>
+          <img src="./static/images/f2_overall.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('portability')">
+          <span>Facet 3: Portability</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-portability"></i>
+          </span>
+        </button>
+        <div id="portability" class="finding-content" style="display: none;">
+          <p>
+            Portability Scores of Knowledge Editing Methods. Portability Scores (%) are measured
+            by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with
+            N hops (N = 1 ∼ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation
+            Questions when N is 1. The Portability Scores on two domains "human" and "places" are reported
+            in the figure. The "overall" refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.
+          </p>
+          <p>
+            Insight 3: (1) LLMs may memorize answers rather than reason based on single-hop knowledge
+            for multi-hop questions; (2) Editing methods except ICE mostly underperform pre-edit Portability
+            Scores, implying LLMs cannot really reason with edited knowledge in multi-hop questions.
+          </p>
+          <img src="./static/images/f3_overall_v3.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('locality')">
+          <span>Facet 4: Locality</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-locality"></i>
+          </span>
+        </button>
+        <div id="locality" class="finding-content" style="display: none;">
+          <p>
+            Locality Scores of Knowledge Editing Methods. Locality Scores (%) are measured by
+            the unchanging rate on Locality Evaluation Questions after applying knowledge editing methods
+            on LLMs. A higher Locality Score indicates that there is a higher percentage of LLMs' answers to
+            the unrelated questions keeping the same and a less side effect on general knowledge in LLMs. The
+            "overall" refers to the Locality Score (%) on the whole HalluEditBench embracing 9 domains for
+            different methods. The Locality Score on each domain is also reported in the figure.
+          </p>
+          <p>
+            Insight 4: (1) Locality Scores of editing methods except FT-M and ICE are unsatisfactory; (2)
+            Domains and LLMs have a high impact on Locality Scores, and Locality rankings are distinct
+            across different LLMs; (3) Efficacy does not have a noticeable correlation with Locality.
+          </p>
+          <img src="./static/images/f4_v3.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('robustness')">
+          <span>Facet 5: Robustness</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-robustness"></i>
+          </span>
+        </button>
+        <div id="robustness" class="finding-content" style="display: none;">
+          <p>
+            Robustness Scores of Knowledge Editing Methods. Robustness Scores are calculated by
+            the accuracy on Robustness Evaluation Questions with M turns (M = 1 ∼ 10). We regard Efficacy
+            Scores as the Robustness Scores when M is 0. The Robustness Scores on two domains "human" and
+            "places" are reported in the figure. The "overall" refers to the Robustness Score (%) on the whole HalluEditBench embracing 9 domains.
+          </p>
+          <p>
+            Insight 5: (1) LLMs have a large impact on the Robustness of edited knowledge; 
+            (2) Parameterpreserving knowledge editing methods such as ICE and GRACE potentially have low Robustness.
+          </p>
+          <img src="./static/images/f5_overall_v3.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+function toggleFinding(id) {
+  var content = document.getElementById(id);
+  var icon = document.getElementById('icon-' + id);
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
+  } else {
+    content.style.display = "none";
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  }
+}
+</script>
+
+<style>
+.finding-toggle {
+  margin-bottom: 1rem;
+}
+.finding-content {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.button .icon {
+  margin-left: 0.5em;
+}
+.button.is-fullwidth {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+
 
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
@@ -385,6 +560,60 @@
 }</code></pre>
   </div>
 </section>
+
+  <button id="backToTopBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <style>
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      width: 50px;
+      height: 50px;
+      border: none;
+      outline: none;
+      background-color: #ffffff;
+      color: #333333;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    #backToTopBtn:hover {
+      background-color: #f0f0f0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    #backToTopBtn svg {
+      display: block;
+      margin: auto;
+    }
+  </style>
+
+  <script>
+    var mybutton = document.getElementById("backToTopBtn");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    mybutton.onclick = function() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
 
 
   <footer class="footer">
